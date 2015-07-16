@@ -1,5 +1,5 @@
 {
-  "name": "angular-slick",
+  "name": "angular-slick-extended",
   "version": "0.2.1",
   "main": "dist/slick.js",
   "ignore": [
