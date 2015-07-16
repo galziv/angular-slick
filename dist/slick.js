@@ -124,6 +124,16 @@ angular.module('slick', []).directive('slick', [
                 return sl.slideHandler(currentIndex);
               }
             });
+            slider.on('setPosition', function (sl) {
+              if (attrs.onSetPosition) {
+                scope.onSetPosition();
+              }
+            });
+            slider.on('beforeChange', function (sl) {
+              if (attrs.onBeforeChange) {
+                scope.onBeforeChange();
+              }
+            });
             slider.on('afterChange', function (event, slick, currentSlide, nextSlide) {
               if (scope.onAfterChange) {
                 scope.onAfterChange();
