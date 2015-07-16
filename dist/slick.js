@@ -116,27 +116,27 @@ angular.module('slick', []).directive('slick', [
               prevArrow: scope.prevArrow ? $(scope.prevArrow) : void 0,
               nextArrow: scope.nextArrow ? $(scope.nextArrow) : void 0
             });
-            slider.on('init', function (sl) {
+            slider.on('init', function (event, slick) {
               if (attrs.onInit) {
-                scope.onInit();
+                scope.onInit(event, slick);
               }
               if (currentIndex != null) {
                 return sl.slideHandler(currentIndex);
               }
             });
-            slider.on('setPosition', function (sl) {
+            slider.on('setPosition', function (event, slick) {
               if (attrs.onSetPosition) {
-                scope.onSetPosition();
+                scope.onSetPosition(event, slick);
               }
             });
-            slider.on('beforeChange', function (sl) {
+            slider.on('beforeChange', function (event, slick, currentSlide, nextSlide) {
               if (attrs.onBeforeChange) {
-                scope.onBeforeChange();
+                scope.onBeforeChange(event, slick, currentSlide, nextSlide);
               }
             });
-            slider.on('afterChange', function (event, slick, currentSlide, nextSlide) {
+            slider.on('afterChange', function (event, slick, currentSlide) {
               if (scope.onAfterChange) {
-                scope.onAfterChange();
+                scope.onAfterChange(event, slick, currentSlide);
               }
               if (currentIndex != null) {
                 return scope.$apply(function () {
