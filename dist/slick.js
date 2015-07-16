@@ -23,6 +23,7 @@ angular.module('slick', []).directive('slick', [
         dots: '@',
         draggable: '@',
         easing: '@',
+		edgeFriction: '@',
         fade: '@',
         focusOnSelect: '@',
         infinite: '@',
@@ -91,6 +92,7 @@ angular.module('slick', []).directive('slick', [
               dots: scope.dots === 'true',
               draggable: scope.draggable !== 'false',
               easing: scope.easing || 'linear',
+			  edgeFriction: scope.edgeFriction || 0.15, // default value as per slick's website
               fade: scope.fade === 'true',
               focusOnSelect: scope.focusOnSelect === 'true',
               infinite: scope.infinite !== 'false',
